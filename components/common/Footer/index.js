@@ -1,23 +1,30 @@
 import { useRouter } from "next/router";
+import { setTimer } from "../../../utils";
 import { Card } from "../../ui";
 
-function Footer({ courseId }){
+function Footer({ courseId, isQuiz = false, modalOpen = false, setModalOpen}){
     const router = useRouter();
     const footer = [
         {
             className: 'previous',
             text: 'Sebelumnya',
-            onClick: () => {}
+            onClick: () => router.back()
         },
         {
             className: 'home',
             text: 'Home',
-            onClick: () => {}
+            onClick: () => router.push('/landing')
         },
         {
             className: 'next',
             text: 'Selanjutnya',
-            onClick: (courseId) => router.push(`/quiz/${courseId}`)
+            onClick: (courseId) => {
+                if (isQuiz) {
+                    return setModalOpen(modalOpen)
+                }
+                setTimer();
+                router.push(`/quiz/${courseId}`)
+            }
         },
     ];
     return(

@@ -1,11 +1,16 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { Layout } from "../../components/common";
 import { Card } from "../../components/ui";
 import styles from "./Landing.module.css";
 
 function Landing() {
     const router = useRouter();    
+    
+    const logout = () => {
+        localStorage.clear();
+        router.push('/');
+    };
+
     const cards = [
         {
             text: 'MULAI',
@@ -17,7 +22,7 @@ function Landing() {
         },
         {
             text: 'KELUAR',
-            onClick: () => console.log('keluar')
+            onClick: () => logout()
         }
     ]
     return (
