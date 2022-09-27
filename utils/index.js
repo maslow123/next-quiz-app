@@ -1,10 +1,34 @@
 import Swal from 'sweetalert2';
 
-const notify = (type, title = '', message) => {
+const notify = (
+    type, 
+    title = '', 
+    message, 
+    correctAnswer, 
+    lastQuiz = false, 
+    course, 
+    isQuiz = false, 
+    router
+) => {
     Swal.fire({
         icon: type,
         title,
-        text: message,
+        text: message,    
+        showCancelButton: true,
+        confirmButtonText: 'OK',    
+    })
+    .then(res => {
+        if (res.isConfirmed && isQuiz ) {
+            if ((lastQuiz && course.counter === 0 && !correctAnswer) || (lastQuiz && correctAnswer)) {
+                router.push(`/landing`);
+                return
+            }
+
+            if(correctAnswer || (!correctAnswer && course.counter < 1)) {            
+                router.push(`/course/${Number(course.id) + 1}`);
+                return
+            }            
+        }
     })
 };
 
@@ -35,12 +59,9 @@ const setTimer = () => {
     return startTime;
 }
 
-function getSecondsDiff(startDate, endDate) {
-    const msInSecond = 1000;
-  
-    return Math.round(
-      Math.abs(endDate - startDate) / msInSecond
-    );
-}
+const images = {
+    result: '/images/trophy.png'
+};
 
-export { notify, setTimer };
+
+export { notify, setTimer, images };

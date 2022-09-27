@@ -2,9 +2,12 @@
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
+  // images: {
+  //   loader: 'imgix',
+  //   path: 'https://picsum.photos/seed/picsum/200/300',
+  // },
   images: {
-    loader: 'imgix',
-    path: 'https://picsum.photos/seed/picsum/200/300',
+    domains: ['https://picsum.photos/seed/picsum/200/300'],
   },
 }
 
