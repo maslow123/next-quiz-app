@@ -15,7 +15,7 @@ export default function Timer({ offsetTimestamp }) {
 });
     return (
         <div style={{ width: 100}} className="badge bg-danger">
-            <label>{hours}:{minutes}:{seconds} </label>
+            <label id="timer">{hours}:{minutes}:{seconds} </label>
         </div>
     );
 }

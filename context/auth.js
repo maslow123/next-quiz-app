@@ -13,13 +13,14 @@ export default function AuthProvider({ children }) {
             const user = localStorage.getItem('user');
             const session = localStorage.getItem('sessionTime');
             const now = new Date();
+            const authIsValid = (now.getTime() < Number(session));
 
-            if ((user !== undefined || user !== null) && (now.getTime() < Number(session))) {
+            if ((user !== undefined || user !== null) && authIsValid) {
                 setUser(user);
                 return
             }
 
-            if (router.pathname === '/') {
+            if (router.pathname === '/' && authIsValid) {
                 router.push('/landing');
                 return
             }

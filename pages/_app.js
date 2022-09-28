@@ -1,12 +1,15 @@
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import AuthProvider from '../context/auth';
+import { BgSound } from '../components/common';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthProvider>
-      <Component {...pageProps} />
-    </AuthProvider>
+    <BgSound>
+      <AuthProvider>      
+        <Component {...pageProps} />
+      </AuthProvider>
+    </BgSound>
   );
 }
 

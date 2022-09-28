@@ -90,4 +90,9 @@ export class Services {
         const score = this.course.map(course => course.score).reduce((acc, a) => acc + a);
         return score;
     }
+
+    completedAllCourse = () => {
+        const course = this.course.filter(course => course.user_answer === null);
+        return course.length < 1;
+    }
 };

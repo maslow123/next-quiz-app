@@ -3,7 +3,7 @@ import { Footer, Header, Layout } from "../../components/common";
 import { Services }  from "../../services";
 import { useRouter } from "next/router";
 import Image from 'next/image';
-import { notify, setTimer } from "../../utils";
+import { adjustBgSound, notify, setTimer } from "../../utils";
 import { useAuth } from "../../context/auth";
 
 function Course() {
@@ -14,6 +14,8 @@ function Course() {
     const [offsetTimestamp, setOffsetTimestamp] = useState(null);
 
     useEffect(() => {
+        adjustBgSound(0.5);
+        
         const startTime = setTimer();
         setOffsetTimestamp(startTime.getTime());
 
@@ -22,7 +24,10 @@ function Course() {
 
         const services = getServices();
         const detailCourse = services.getCourseById(id);
-        
+        if (!detailCourse) {
+            router.back();
+            return
+        }
         if (detailCourse?.user_answer !== null) {
             checkCourseIsPassed();
             return
@@ -48,7 +53,11 @@ function Course() {
         const courseNotPassed = allCourse.filter(c => c.user_answer === null);
 
         if (courseNotPassed.length < 1) {
-            notify('error', `Halo kelompok ${ctx.user}`, 'Kamu telah menyelesaikan semua quiz, harap laporkan nilaimu ke kaka pendampingmu ya')
+            notify(
+                'error', 
+                `Hai kelompok ${ctx.user}`, 
+                `Kamu telah menyelesaikan semua quiz, yuk lihat nilai kamu dengan klik tombol NILAI KAMU di bawah ini`
+            )
             router.push('/landing');
             return
         }
@@ -93,7 +102,6 @@ function Course() {
 export default Course;
 
 export async function getServerSideProps(context) {
-    console.log(context);
     return {
         props: {},
     };

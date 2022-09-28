@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Footer, Header, Layout } from "../../components/common";
 import { Card, Modal } from "../../components/ui";
 import { Services } from "../../services";
-import { notify, setTimer } from "../../utils";
+import { adjustBgSound, notify, playSound, setTimer, sounds } from "../../utils";
 
 function Quiz() {
     const router = useRouter();
@@ -12,19 +12,27 @@ function Quiz() {
     const [loading, setLoading] = useState(true);
     const [course, setCourse] = useState(null);
     const [answer, setAnswer] = useState(null);
-    const [modalOpen, setModalOpen] = useState(false);
-    const [correctAnswer, setCorrectAnswer] = useState(false);    
     const [lastQuiz, setLastQuiz] = useState(false);
     const [offsetTimestamp, setOffsetTimestamp] = useState(null);
     const [score, setScore] = useState(0);
 
     useEffect(() => {        
+        adjustBgSound(0.5);
+        
         const startTime = setTimer();
         setOffsetTimestamp(startTime.getTime());
 
         const services = getServices();
         const id = parseInt(courseId);
         const detailCourse = services.getCourseById(id);
+        if (!detailCourse) {
+            router.back();
+            return
+        }
+        if (detailCourse.user_answer !== null) {
+            notify('error', 'Ada kesalahan', 'Maaf, kamu sudah pernah mengerjakan quiz ini');
+            router.push('/landing');
+        }
 
         const allCourse = services.getAllCourse();
         const isLastQuiz = allCourse.length === detailCourse.id;
@@ -55,11 +63,15 @@ function Quiz() {
 
     const checkTheAnswer = () => {
         if (answer === null) {
-            notify('error', 'Oops, kamu harus pilih jawaban terlebih dahulu ya');
+            notify('error', 'Ups, kamu harus pilih jawaban terlebih dahulu ya');
             return
         }
 
         const isCorrect = Number(answer) === course.correct_answer;
+        const sound = isCorrect ? sounds.answer.correct : sounds.answer.wrong;
+        playSound(sound, 'play');
+
+
         const updateCourse = {            
             ...course,
             score: isCorrect ? 10 : 0,
@@ -77,16 +89,27 @@ function Quiz() {
         ? lastQuiz
             ? 'Hebat! kamu telah menyelesaikan semua quiz. Yuk lihat nilai kamu dengan tekan tombol OK di bawah ini.'
             : 'Kamu hebat, yuk lanjut ke game selanjutnya untuk mengasah kemampuan kamu. ' 
-        : course.counter < 1
+        : updateCourse.counter < 1
             ? `Yahh kesempatan kamu udah abis, yuk lanjutin ke soal berikutnya.`
-            : `Kamu masih punya kesempatan ${course.counter} kali lagi, tetap semangat ya!`;
+            : `Kamu masih punya kesempatan ${updateCourse.counter} kali lagi, tetap semangat ya!`;
         const type = isCorrect ? 'success' : 'error';
         const title = isCorrect ? 'Jawaban Benar' : 'Jawaban Salah';
 
-        notify(type, title, message, isCorrect, lastQuiz, course, true, router);
+        if (updateCourse.counter < 1 && !isCorrect) {
+            playSound(sounds.answer.limit, 'play');
+        }
+
+        if ((lastQuiz && updateCourse.counter === 0 && !isCorrect) || (lastQuiz && isCorrect)) {
+            setFinishTime();
+        }
+        notify(type, title, message, isCorrect, lastQuiz, updateCourse, true, router);
         
-        setCorrectAnswer(isCorrect);        
         setCourse({ ...updateCourse });
+    }
+
+    const setFinishTime = () => {        
+        const finishTime = document.getElementById('timer').innerText;
+        localStorage.setItem('QUIZ_FINISH_TIME', finishTime);
     }
 
     return (

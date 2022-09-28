@@ -1,11 +1,19 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import ReactAudioPlayer from "react-audio-player";
 import { Layout } from "../../components/common";
 import { Card } from "../../components/ui";
+import { adjustBgSound, checkBgSoundIsActive, playSound, sounds } from "../../utils";
 import styles from "./Landing.module.css";
 
 function Landing() {
     const router = useRouter();    
     
+    useEffect(() => {
+        checkBgSoundIsActive();
+        adjustBgSound(1);
+        localStorage.removeItem('QUIZ_START_TIME');
+    }, []);
     const logout = () => {
         localStorage.clear();
         router.push('/');
@@ -18,7 +26,11 @@ function Landing() {
         },
         {
             text: 'TENTANG',
-            onClick: () => console.log('tentang')
+            onClick: () => router.push('/about-us')
+        },
+        {
+            text: 'NILAI KAMU',
+            onClick: () => router.push('/result')
         },
         {
             text: 'KELUAR',
@@ -27,6 +39,11 @@ function Landing() {
     ]
     return (
         <Layout>
+            {/* <ReactAudioPlayer
+                src={sounds.landing}
+                autoPlay
+                
+            /> */}
             <div className={styles.container}>
                 {cards.map((card, key) => (
                     <div key={key}>                    
