@@ -1,3 +1,4 @@
+import { images } from "../utils";
 
 export class Services {
     constructor(course){
@@ -5,57 +6,118 @@ export class Services {
             {
                 id: 1,
                 theory: `
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    Komputer adalah sebuah benda elektronik yang bisa melakukan berbagai tugas, seperti menerima input dan memprosesnya sesuai dengan perintah, menyimpan berbagai perintah dan mengelola hasilnya, 
+                    serta menyediakan hasilnya dalam bentuk informasi yang lengkap.
                 `,
-                thumbnail: 'https://picsum.photos/seed/picsum/200/300',
-                question: 'Manakah foto beruang?',
+                thumbnail: images.questions.computer,
+                question: 'Dibawah ini manakah gambar dari Komputer yang benar?',
                 options: [
                     {
-                        image: 'https://picsum.photos/seed/picsum/200/300',                        
+                        image: images.questions.computer,                        
                     },
                     {
-                        image: 'https://picsum.photos/seed/picsum/200/300',                        
+                        image: images.questions.motherboard,                        
                     },
                     {
-                        image: 'https://picsum.photos/seed/picsum/200/300',                        
-                    },
-                    {
-                        image: 'https://cdn3.vectorstock.com/i/1000x1000/37/37/simple-cartoon-of-a-cute-bear-vector-18823737.jpg',
+                        image: images.questions.processor,                        
                     }
                 ],
-                correct_answer: 3,
+                correct_answer: 0,
                 user_answer: null,
-                counter: 3,
+                counter: 2,
                 score: 0
             },
             {
                 id: 2,
                 theory: `
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    Motherboard merupakan papan sirkuit yang menjadi rumah bagi komponen komputer seperti RAM, hard disk, 
+                    dan prosesor yang saling terhubung.
                 `,
-                thumbnail: 'https://picsum.photos/seed/picsum/200/300',
-                question: '2. Manakah foto beruang?',
-                options: [
+                thumbnail: images.questions.motherboard,
+                question: 'Dibawah ini manakah gambar dari Motherboard yang benar?',
+                options: [                    
                     {
-                        image: 'https://picsum.photos/seed/picsum/200/300',                        
+                        image: images.questions.processor,                        
                     },
                     {
-                        image: 'https://picsum.photos/seed/picsum/200/300',                        
+                        image: images.questions.ram,                        
                     },
                     {
-                        image: 'https://picsum.photos/seed/picsum/200/300',                        
-                    },
-                    {
-                        image: 'https://cdn3.vectorstock.com/i/1000x1000/37/37/simple-cartoon-of-a-cute-bear-vector-18823737.jpg',
+                        image: images.questions.motherboard,                        
                     }
                 ],
-                correct_answer: 3,
+                correct_answer: 2,
                 user_answer: null,
-                counter: 3,
+                counter: 2,
+                score: 0
+            },
+            {
+                id: 3,
+                theory: `
+                    CPU (Central Processing Unit) atau prosesor yaitu tempat komputer berpikir dan merupakan bagian utama untuk menggerakan komputer.
+                `,
+                thumbnail: images.questions.processor,
+                question: 'Dibawah ini manakah gambar dari CPU (Central Processing Unit) yang benar?',
+                options: [
+                    {
+                        image: images.questions.hardisk,                        
+                    },
+                    {
+                        image: images.questions.processor,                        
+                    },
+                    {
+                        image: images.questions.monitor,                        
+                    }
+                ],
+                correct_answer: 1,
+                user_answer: null,
+                counter: 2,
+                score: 0
+            },
+            {
+                id: 4,
+                theory: `
+                    RAM (Random Access Memory) berfungsi menyimpan semua intruksi dari prosesor agar komputer bisa bekerja dengan cepat.
+                `,
+                thumbnail: images.questions.ram,
+                question: 'Dibawah ini manakah gambar dari RAM (Random Access Memory) yang benar?',
+                options: [
+                    {
+                        image: images.questions.monitor,                        
+                    },
+                    {
+                        image: images.questions.ram,                        
+                    },
+                    {
+                        image: images.questions.hardisk,                        
+                    }
+                ],
+                correct_answer: 1,
+                user_answer: null,
+                counter: 2,
+                score: 0
+            },
+            {
+                id: 5,
+                theory: `
+                    Hard Disk yaitu perangkat keras komputer yang memiliki fungsi sebagai media penyimpanan data di komputer.
+                `,
+                thumbnail: images.questions.hardisk,
+                question: 'Dibawah ini manakah gambar dari Hard Disk yang benar?',
+                options: [
+                    {
+                        image: images.questions.keyboard,                        
+                    },
+                    {
+                        image: images.questions.hardisk,                        
+                    },
+                    {
+                        image: images.questions.motherboard,                        
+                    }
+                ],
+                correct_answer: 1,
+                user_answer: null,
+                counter: 2,
                 score: 0
             }
         ]; 

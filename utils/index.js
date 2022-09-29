@@ -52,9 +52,20 @@ const setTimer = () => {
     return startTime;
 }
 
+const questionImage = '/images/question/';
 const images = {
     result: '/images/trophy.png',
-    logo: '/images/unpam.png'
+    logo: '/images/unpam.png',
+    questions: {
+        computer: `${questionImage}Komputer-Edit.png`,
+        motherboard: `${questionImage}Motherboard-Edit.png`,
+        processor: `${questionImage}PROCESSOR-Edit.png`,
+        ram: `${questionImage}RAM-Edit.png`,
+        cpu: `${questionImage}CPU-Edit.png`,
+        hardisk: `${questionImage}HardDisk-Edit.png`,
+        monitor: `${questionImage}monitor-Edit.png`,
+        keyboard: `${questionImage}Keyboard-Edit.png`,
+    }
 };
 
 const pathSound = '/sounds/';
