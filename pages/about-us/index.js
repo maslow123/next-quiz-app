@@ -71,6 +71,30 @@ function AboutUs(props) {
                 </div>
             </div>
 
+            
+            <div className="row mt-4">
+                <div className="col-md-4"></div>
+                <div className="col-md-4 mb-4">
+                    <div className="card border-0" style={{ width: '18rem'}}>             
+                        <Image
+                            className="thumbnail"
+                            alt="thumbnail"
+                            loader={myLoader}
+                            src={"https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1664351577~exp=1664352177~hmac=432a748a9df2741fe4d601bf3ef9b98289e49429c78c9c431651aa23a022ab04"}
+                            quality={100}
+                            layout="intrinsic"
+                            width={200}
+                            height={300}
+                        />
+                        <div className="pt-4" style={{ lineHeight: 0 }}>
+                            <h5 className="fs-4 card-title fw-bold">Dosen Pembimbing</h5>
+                            <p className="fs-7 card-text fst-italic">Dospem</p>
+                        </div>
+                    </div>
+                </div>                
+                <div className="col-md-4"></div>
+                
+            </div>
             <div className="content row">
                 {organizations.map((org, key) => (
                     <div className="col-md-4 mt-4" key={key}>
