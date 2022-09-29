@@ -129,7 +129,6 @@ function Quiz() {
                         >
                             {answer !== null && (
                                 <Image
-                                    className="img-thumbnail"
                                     alt="thumbnail"
                                     loader={myLoader}
                                     src={course.options[answer].image}
@@ -162,7 +161,6 @@ function Quiz() {
                                 >     
                                     {answer !== key && (
                                         <Image
-                                            className="img-thumbnail"
                                             alt="thumbnail"
                                             loader={myLoader}
                                             src={opt.image}
