@@ -65,7 +65,7 @@ const sounds = {
         wrong: `${pathSound}jawaban_salah.wav`,
         correct: `${pathSound}jawaban_benar2.wav`,
     },
-    button: `${pathSound}tombol.wav`,
+    button: `${pathSound}Tombol.wav`,
     commonButton: `${pathSound}commonButton.wav`,
     quiz: {
         1: `${pathSound}quiz1.wav`,
