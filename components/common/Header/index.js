@@ -1,5 +1,5 @@
 import { useAuth } from "../../../context/auth";
-import Timer from "../../ui/TImer";
+import Timer from "../../ui/Timer";
 
 function Header({ withScore = false, offsetTimestamp, score = 0 }){
     const ctx = useAuth();
