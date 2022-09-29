@@ -3,6 +3,7 @@ import { Layout } from "../components/common";
 import { Card } from '../components/ui';
 import { useAuth } from '../context/auth';
 import { useRouter } from 'next/router';
+import { notify, playSound, sounds } from '../utils';
 
 export default function Home() {
   const ctx = useAuth();
@@ -13,7 +14,15 @@ export default function Home() {
     return date;
   }
 
-  const onSubmit = () => {
+  const onSubmit = () => {    
+    if (!ctx.user) {
+      playSound(sounds.answer.wrong);
+      notify('error', 'Ada yang salah nih', 'Kamu harus isi nama kelompok dulu ya supaya bisa mulai permainannya');
+      return
+    }
+
+    playSound(sounds.commonButton);
+
     const user = ctx.user;
     const sessionTime = addHours(1);
     // save to localStorage  

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Footer, Header, Layout } from "../../components/common";
-import { Card, Modal } from "../../components/ui";
+import { Card } from "../../components/ui";
 import { Services } from "../../services";
 import { adjustBgSound, notify, playSound, setTimer, sounds } from "../../utils";
 
@@ -17,6 +17,7 @@ function Quiz() {
     const [score, setScore] = useState(0);
 
     useEffect(() => {        
+        playSound(sounds.quiz[courseId]);
         adjustBgSound(0.5);
         
         const startTime = setTimer();
@@ -30,6 +31,7 @@ function Quiz() {
             return
         }
         if (detailCourse.user_answer !== null) {
+            playSound(sounds.answer.wrong);
             notify('error', 'Ada kesalahan', 'Maaf, kamu sudah pernah mengerjakan quiz ini');
             router.push('/landing');
         }
@@ -63,13 +65,14 @@ function Quiz() {
 
     const checkTheAnswer = () => {
         if (answer === null) {
+            playSound(sounds.answer.wrong);
             notify('error', 'Ups, kamu harus pilih jawaban terlebih dahulu ya');
             return
         }
 
         const isCorrect = Number(answer) === course.correct_answer;
         const sound = isCorrect ? sounds.answer.correct : sounds.answer.wrong;
-        playSound(sound, 'play');
+        playSound(sound);
 
 
         const updateCourse = {            
@@ -96,7 +99,7 @@ function Quiz() {
         const title = isCorrect ? 'Jawaban Benar' : 'Jawaban Salah';
 
         if (updateCourse.counter < 1 && !isCorrect) {
-            playSound(sounds.answer.limit, 'play');
+            playSound(sounds.answer.limit);
         }
 
         if ((lastQuiz && updateCourse.counter === 0 && !isCorrect) || (lastQuiz && isCorrect)) {
@@ -145,7 +148,10 @@ function Quiz() {
                             <div 
                                 key={key} 
                                 className={`${key}`}
-                                onClick={() => setAnswer(parseInt(key))}
+                                onClick={() => {
+                                    playSound(sounds.button)
+                                    setAnswer(parseInt(key))
+                                }}
                             >
                                 <Card
                                     style={{

@@ -1,14 +1,15 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import ReactAudioPlayer from "react-audio-player";
 import { Layout } from "../../components/common";
 import { Card } from "../../components/ui";
+import { useAuth } from "../../context/auth";
 import { adjustBgSound, checkBgSoundIsActive, playSound, sounds } from "../../utils";
 import styles from "./Landing.module.css";
 
 function Landing() {
-    const router = useRouter();    
-    
+    const router = useRouter();        
+    const { setUser } = useAuth();
+
     useEffect(() => {
         checkBgSoundIsActive();
         adjustBgSound(1);
@@ -16,21 +17,26 @@ function Landing() {
     }, []);
     const logout = () => {
         localStorage.clear();
+        setUser('');
         router.push('/');
     };
 
+    const redirect = (path) => {
+        playSound(sounds.commonButton);
+        router.push(path);
+    }
     const cards = [
         {
             text: 'MULAI',
-            onClick: () => router.push('/course/1')
+            onClick: () => redirect('/course/1')
         },
         {
             text: 'TENTANG',
-            onClick: () => router.push('/about-us')
+            onClick: () => redirect('/about-us')
         },
         {
             text: 'NILAI KAMU',
-            onClick: () => router.push('/result')
+            onClick: () => redirect('/result')
         },
         {
             text: 'KELUAR',
@@ -39,11 +45,6 @@ function Landing() {
     ]
     return (
         <Layout>
-            {/* <ReactAudioPlayer
-                src={sounds.landing}
-                autoPlay
-                
-            /> */}
             <div className={styles.container}>
                 {cards.map((card, key) => (
                     <div key={key}>                    

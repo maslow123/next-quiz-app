@@ -1,10 +1,11 @@
 import { Layout } from "../../components/common";
 import { useAuth } from "../../context/auth";
 import Image from "next/image";
-import { adjustBgSound, images, notify } from "../../utils";
+import { adjustBgSound, images, notify, playSound, sounds, stopBgSound } from "../../utils";
 import { Services } from "../../services";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import ReactAudioPlayer from "react-audio-player";
 
 function Result() {
     const ctx = useAuth();
@@ -14,11 +15,12 @@ function Result() {
     const [finishTime, setFinishTime] = useState('');
 
     useEffect(() => {
-        adjustBgSound(0.7);
+        stopBgSound();        
         const services = getServices();
         const allCourseIsCompleted = services.completedAllCourse();
         
-        if (!allCourseIsCompleted) {
+        if (!allCourseIsCompleted) {            
+            playSound(sounds.answer.wrong);        
             notify('error', 'Ada yang salah nih', 'Ayo selesaikan permainannya, supaya kamu bisa melihat nilai kamu');            
             setShowResult(false);
             router.push('/landing');
@@ -45,6 +47,7 @@ function Result() {
         >
             {showResult && (
                 <div className={`d-flex align-items-center flex-column justify-content-center`}>
+                    <ReactAudioPlayer autoPlay src={sounds.gameFinished} loop />
                     <div className="title">
                         <label style={{ fontSize: 15, fontWeight: 'normal'}}>Selamat untuk kelompok:</label><br/>                                        
                     </div>                

@@ -3,7 +3,7 @@ import { Footer, Header, Layout } from "../../components/common";
 import { Services }  from "../../services";
 import { useRouter } from "next/router";
 import Image from 'next/image';
-import { adjustBgSound, notify, setTimer } from "../../utils";
+import { adjustBgSound, notify, playSound, setTimer, sounds } from "../../utils";
 import { useAuth } from "../../context/auth";
 
 function Course() {
@@ -53,15 +53,19 @@ function Course() {
         const courseNotPassed = allCourse.filter(c => c.user_answer === null);
 
         if (courseNotPassed.length < 1) {
+            playSound(sounds.answer.wrong);
             notify(
                 'error', 
                 `Hai kelompok ${ctx.user}`, 
-                `Kamu telah menyelesaikan semua quiz, yuk lihat nilai kamu dengan klik tombol NILAI KAMU di bawah ini`
+                `Kamu telah menyelesaikan semua quiz, yuk lihat nilai kamu dengan klik tombol <b>NILAI KAMU</b> di bawah ini`
             )
             router.push('/landing');
             return
         }
-        router.push(`/course/${courseNotPassed[0].id}`);
+        router.replace({
+            pathname: `/course/${courseNotPassed[0].id}`
+        }).then(() => router.reload());
+        // router.reload();
     };
 
     const myLoader = ({ src }) => {

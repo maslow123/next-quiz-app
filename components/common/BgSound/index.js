@@ -1,6 +1,5 @@
 import { checkBgSoundIsActive, sounds } from "../../../utils";
 import ReactAudioPlayer from 'react-audio-player';
-import { useEffect } from "react";
 
 function BgSound({ children }) {    
     const click = () => {
@@ -8,7 +7,7 @@ function BgSound({ children }) {
     }
     return (
         <div id="wrapper" onClick={() => click()}>
-            <ReactAudioPlayer autoPlay src={sounds.landing} id="bgsound"/>
+            <ReactAudioPlayer autoPlay src={sounds.landing} id="bgsound" loop/>
             { children }
         </div>
     )

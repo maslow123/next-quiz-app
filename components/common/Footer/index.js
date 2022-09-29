@@ -28,7 +28,7 @@ function Footer({ courseId, isQuiz = false, modalOpen = false, setModalOpen}){
         },
     ];
     return(
-        <footer className="d-flex justify-content-between align-items-center flex-wrap mt-5">
+        <footer className="footer d-flex justify-content-between align-items-center flex-wrap mt-5">
             {footer.map((f, i) => (                    
                 <div className={f.className} key={i}>
                     <Card 

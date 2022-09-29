@@ -13,7 +13,7 @@ const notify = (
     Swal.fire({
         icon: type,
         title,
-        text: message,    
+        html: message,    
         showCancelButton: true,
         confirmButtonText: 'OK',    
     })
@@ -57,16 +57,32 @@ const images = {
     logo: '/images/unpam.png'
 };
 
+const pathSound = '/sounds/';
 const sounds = {
-    landing: '/sounds/halaman_utama.wav',
+    landing: `${pathSound}halaman_utama.wav`,
     answer: {
-        limit: '/sounds/jawaban_salah3.wav',
-        wrong: '/sounds/jawaban_salah.wav',
-        correct: '/sounds/jawaban_benar2.wav',
-    }
+        limit: `${pathSound}jawaban_salah3.wav`,
+        wrong: `${pathSound}jawaban_salah.wav`,
+        correct: `${pathSound}jawaban_benar2.wav`,
+    },
+    button: `${pathSound}tombol.wav`,
+    commonButton: `${pathSound}commonButton.wav`,
+    quiz: {
+        1: `${pathSound}quiz1.wav`,
+        2: `${pathSound}quiz2.wav`,
+        3: `${pathSound}quiz3.wav`,
+        4: `${pathSound}quiz4.wav`,
+        5: `${pathSound}quiz5.wav`,
+        6: `${pathSound}quiz6.wav`,
+        7: `${pathSound}quiz7.wav`,
+        8: `${pathSound}quiz8.wav`,
+        9: `${pathSound}quiz9.wav`,
+        10: `${pathSound}quiz10.wav`,
+    },
+    gameFinished: '/sounds/selesai_game.wav'
 };
 
-const playSound = (path, type) => {    
+const playSound = (path) => {    
     const audio = new Audio(path);
     audio.play();    
 }
@@ -88,7 +104,7 @@ const adjustBgSound = (volume) => {
 
 const checkBgSoundIsActive = () => {
     const bgSound = document.getElementById('bgsound');
-    if (bgSound?.currentTime < 1) {
+    if (bgSound?.currentTime < 1 || bgSound?.paused) {
         bgSound.play();
     }
 }

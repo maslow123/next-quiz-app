@@ -48,7 +48,7 @@ function AboutUs(props) {
             </div>
             <div className="header row gx-5">
                 <div className="col-md-8">
-                    <div className="heading fs-1 fw-bold lh-sm">
+                    <div className="heading fs-2 fw-bold lh-sm">
                         <label>Perkenalkan, kami mahasiswa Universitas Pamulang yang terdiri dari <span className="fst-italic fw-normal">kreator, desainer, videographer, </span> dan <span className="fst-italic fw-normal">problem solvers</span></label>
                     </div>
                     <div className="sub-heading pt-4">
