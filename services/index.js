@@ -80,7 +80,7 @@ export class Services {
                     RAM (Random Access Memory) berfungsi menyimpan semua intruksi dari prosesor agar komputer bisa bekerja dengan cepat.
                 `,
                 thumbnail: images.questions.ram,
-                question: 'Dibawah ini manakah gambar dari RAM (Random Access Memory) yang benar?',
+                question: 'Manakah yang benar, nama dari perangkat keras komputer di atas!',
                 options: [
                     {
                         image: images.word.ram,                        
