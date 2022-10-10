@@ -34,16 +34,16 @@ export class Services {
                     dan prosesor yang saling terhubung.
                 `,
                 thumbnail: images.questions.motherboard,
-                question: 'Dibawah ini manakah gambar dari Motherboard yang benar?',
+                question: 'Manakah yang benar, nama dari perangkat keras komputer di atas!',
                 options: [                    
                     {
-                        image: images.questions.processor,                        
+                        image: images.word.ram,                        
                     },
                     {
-                        image: images.questions.ram,                        
+                        image: images.word.processor,                        
                     },
                     {
-                        image: images.questions.motherboard,                        
+                        image: images.word.motherboard,                        
                     }
                 ],
                 correct_answer: 2,
@@ -83,16 +83,16 @@ export class Services {
                 question: 'Dibawah ini manakah gambar dari RAM (Random Access Memory) yang benar?',
                 options: [
                     {
-                        image: images.questions.monitor,                        
+                        image: images.word.ram,                        
                     },
                     {
-                        image: images.questions.ram,                        
+                        image: images.word.monitor,                        
                     },
                     {
-                        image: images.questions.hardisk,                        
+                        image: images.word.hardisk,                        
                     }
                 ],
-                correct_answer: 1,
+                correct_answer: 0,
                 user_answer: null,
                 counter: 2,
                 score: 0
@@ -103,7 +103,7 @@ export class Services {
                     Hard Disk yaitu perangkat keras komputer yang memiliki fungsi sebagai media penyimpanan data di komputer.
                 `,
                 thumbnail: images.questions.hardisk,
-                question: 'Dibawah ini manakah gambar dari Hard Disk yang benar?',
+                question: 'Di bawah ini manakah gambar dari Hard Disk yang benar?',
                 options: [
                     {
                         image: images.questions.keyboard,                        
@@ -119,7 +119,145 @@ export class Services {
                 user_answer: null,
                 counter: 2,
                 score: 0
-            }
+            },
+            {
+                id: 6,
+                theory: `
+                    Monitor merupakan tempat dimana kita bisa melihat suatu ekspresi apa yang di maksud oleh komputer
+                `,
+                thumbnail: images.questions.monitor,
+                question: 'Manakah yang benar, nama dari perangkat keras komputer di atas!',
+                options: [
+                    {
+                        image: images.word.power_supply,                        
+                    },
+                    {
+                        image: images.word.monitor,                        
+                    },
+                    {
+                        image: images.word.webcam,                        
+                    }
+                ],
+                correct_answer: 1,
+                user_answer: null,
+                counter: 2,
+                score: 0
+            },
+            {
+                id: 7,
+                theory: `
+                    Power Supply berfungsi untuk menyalurkan listrik kedalam seluruh komponen komputer agar komputer bisa hidup dan digunakan.
+                `,
+                thumbnail: images.questions.power_supply,
+                question: 'Di bawah ini manakah gambar dari Power Supply yang benar?',
+                options: [
+                    {
+                        image: images.questions.speaker,                        
+                    },
+                    {
+                        image: images.questions.power_supply,                        
+                    },
+                    {
+                        image: images.questions.processor,                        
+                    }
+                ],
+                correct_answer: 1,
+                user_answer: null,
+                counter: 2,
+                score: 0
+            },
+            {
+                id: 8,
+                theory: `
+                    Keyboard yang fungsinya seperti tangan manusia yang merupakan sarana komputer untuk berinteraksi dan melakukan suatu pekerjaan,
+                `,
+                thumbnail: images.questions.keyboard,
+                question: 'Manakah yang benar, nama dari perangkat keras komputer di atas!',
+                options: [
+                    {
+                        image: images.word.webcam,                        
+                    },
+                    {
+                        image: images.word.speaker,                        
+                    },
+                    {
+                        image: images.word.keyboard,                        
+                    }
+                ],
+                correct_answer: 2,
+                user_answer: null,
+                counter: 2,
+                score: 0
+            },
+            {
+                id: 9,
+                theory: `
+                    Mouse yang fungsinya seperti jari manusia, dapat digunakan untuk mengambil dan memilih sesuatu yang kita inginkan.
+                `,
+                thumbnail: images.questions.mouse,
+                question: 'Di bawah ini manakah gambar dari Mouse yang benar?',
+                options: [
+                    {
+                        image: images.questions.mouse,                        
+                    },
+                    {
+                        image: images.questions.keyboard,                        
+                    },
+                    {
+                        image: images.questions.speaker,                        
+                    }
+                ],
+                correct_answer: 0,
+                user_answer: null,
+                counter: 2,
+                score: 0
+            },
+            {
+                id: 10,
+                theory: `
+                    Speaker adalah tempat dimana komputer bisa mengeluarkan suara agar dapat di dengar oleh kita.
+                `,
+                thumbnail: images.questions.speaker,
+                question: 'Manakah yang benar, nama dari perangkat keras komputer di atas!',
+                options: [
+                    {
+                        image: images.word.webcam,                        
+                    },
+                    {
+                        image: images.word.speaker,                        
+                    },
+                    {
+                        image: images.word.mouse,                        
+                    }
+                ],
+                correct_answer: 1,
+                user_answer: null,
+                counter: 2,
+                score: 0
+            },
+            {
+                id: 11,
+                theory: `
+                    Webcam fungsinya sama seperti mata, yaitu untuk melihat dan menangkap gambar.
+                `,
+                thumbnail: images.questions.webcam,
+                question: 'Di bawah ini manakah gambar dari Webcam yang benar?',
+                options: [
+                    {
+                        image: images.questions.webcam,                        
+                    },
+                    {
+                        image: images.questions.power_supply,                        
+                    },
+                    {
+                        image: images.questions.hardisk,                        
+                    }
+                ],
+                correct_answer: 0,
+                user_answer: null,
+                counter: 2,
+                score: 0
+            },
         ]; 
 
         this.course = course || defaultCourse;

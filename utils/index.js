@@ -53,6 +53,7 @@ const setTimer = () => {
 }
 
 const questionImage = '/images/question/';
+const wordImage = '/images/word/';
 const images = {
     result: '/images/trophy.png',
     logo: '/images/unpam.png',
@@ -65,6 +66,24 @@ const images = {
         hardisk: `${questionImage}HardDisk-Edit.png`,
         monitor: `${questionImage}monitor-Edit.png`,
         keyboard: `${questionImage}Keyboard-Edit.png`,
+        speaker: `${questionImage}Speaker-Edit.png`,
+        webcam: `${questionImage}webcam-Edit.png`,
+        power_supply: `${questionImage}PowerSupply-Edit.png`,
+        mouse: `${questionImage}Mouse-Edit.png`
+    },
+    word: {        
+        computer: `${wordImage}Komputer-Jawaban.png`,
+        motherboard: `${wordImage}Motherboard-Jawaban.png`,
+        processor: `${wordImage}PROCESSOR-Jawaban.png`,
+        ram: `${wordImage}RAM-Jawaban.png`,
+        cpu: `${wordImage}Speaker-Jawaban.png`,
+        hardisk: `${wordImage}HardDisk-Jawaban.png`,
+        monitor: `${wordImage}monitor-Jawaban.png`,
+        keyboard: `${wordImage}Keyboard-Jawaban.png`,
+        speaker: `${wordImage}Speaker-Jawaban.png`,
+        webcam: `${wordImage}webcam-Jawaban.png`,
+        power_supply: `${wordImage}PowerSupply-Jawaban.png`,
+        mouse: `${wordImage}Mouse-Jawaban.png`
     }
 };
 

@@ -15,6 +15,7 @@ function Quiz() {
     const [lastQuiz, setLastQuiz] = useState(false);
     const [offsetTimestamp, setOffsetTimestamp] = useState(null);
     const [score, setScore] = useState(0);
+    const [isEven, _] = useState(Number(courseId) % 2 === 0);
 
     useEffect(() => {        
         playSound(sounds.quiz[courseId]);
@@ -127,11 +128,11 @@ function Quiz() {
                                 height:400
                             }}
                         >
-                            {answer !== null && (
+                            {(answer !== null || isEven) && (
                                 <Image
                                     alt="thumbnail"
                                     loader={myLoader}
-                                    src={course.options[answer].image}
+                                    src={isEven ? course.thumbnail : course.options[answer].image}
                                     quality={100}
                                     layout="intrinsic"
                                     width={300}
@@ -156,10 +157,11 @@ function Quiz() {
                                     style={{
                                         width: 200,
                                         height: 200,
-                                        cursor: 'pointer'
+                                        cursor: 'pointer',
+                                        border: (answer === key && isEven) ? '3px solid black' : 'none'                                       
                                     }}
                                 >     
-                                    {answer !== key && (
+                                    {((answer !== key) || isEven) && (
                                         <Image
                                             alt="thumbnail"
                                             loader={myLoader}

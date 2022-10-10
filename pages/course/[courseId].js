@@ -91,7 +91,7 @@ function Course() {
                             />
                         </div>
 
-                        <div className="theory">
+                        <div className="h2 text-center">
                             <label>{course?.theory}</label>
                         </div>
                     </div>
