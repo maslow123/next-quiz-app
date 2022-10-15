@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'BalooThambi2';
+  src: url('../public/fonts/BalooThambi2-Medium.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'BalooThambi2';
+  src: url('../public/fonts/BalooThambi2-Bold.ttf');
+  font-weight: bold;
+}
+
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+    height: 100%;
+    font-family: BalooThambi2
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+@media only screen and (max-width: 600px) { 
+  html,
+  body,
+  body > div:first-child,
+  div#__next,
+  div#__next > div {
+    height: auto !important;
+  }
+  .footer.footer.d-flex.justify-content-between.align-items-center.flex-wrap.mt-5 {
+    justify-content: center !important;
+  }
+  .headers.d-flex.justify-content-between.align-items-center.mb-3.h4.bold {
+    flex-direction: column !important;
+    height: 150px;
+  }
+  .theory {
+    height: 300px;
+    overflow: auto;
+  }
+  .answers.d-flex.justify-content-around.align-items-center.flex-wrap {
+    height: 200px;
+    overflow: auto;
+  }
+}
