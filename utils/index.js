@@ -89,7 +89,7 @@ const images = {
     org: {
         hanifudin: `${orgImage}rizky_hanifudin_pic.png`,
         iqbalsyah: `${orgImage}iqbalsyah_pic.png`,
-        fadhly: `${orgImage}fadhly_pic.png`,
+        fadhly: `${orgImage}fad_pic.png`,
         andini: `${orgImage}andini_pic.png`,
         dospem: `${orgImage}dospem_pic.png`,
         putri: `${orgImage}putri_pic.png`,
