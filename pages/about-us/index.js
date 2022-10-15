@@ -5,36 +5,63 @@ import { images, myLoader } from "../../utils";
 
 function AboutUs(props) {
     const router = useRouter();
+    const leadership = [
+        {
+            photo: images.org.dospem,
+            name: 'HIDAYATULLAH AL ISLAMI M.Kom S.Kom',
+            role: 'Dospem'
+        },
+        {
+            photo: images.org.hanifudin,
+            name: 'Rizky Hanifudin',
+            role: '201011400105'
+        },
+    ]
     const organizations = [
         {
-            photo: 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1664351577~exp=1664352177~hmac=432a748a9df2741fe4d601bf3ef9b98289e49429c78c9c431651aa23a022ab04',
-            name: 'Mikasa Uzumaki Naruto',
+            photo: images.org.fadhly,
+            name: 'M Fadhly Noor Rizqi',
             role: '201011400094'
         },                                
         {
-            photo: 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1664351577~exp=1664352177~hmac=432a748a9df2741fe4d601bf3ef9b98289e49429c78c9c431651aa23a022ab04',
-            name: 'Bang Sapri',
-            role: '201011400094'
+            photo: images.org.putri,
+            name: 'Putri Rokhmayati',
+            role: '201011400293'
         },
         {
-            photo: 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1664351577~exp=1664352177~hmac=432a748a9df2741fe4d601bf3ef9b98289e49429c78c9c431651aa23a022ab04',
-            name: 'Mbo Darmi',
-            role: '201011400094'
+            photo: images.org.iqbalsyah,
+            name: 'Iqbalsyah Khatami',
+            role: '201011401525'
         },
         {
-            photo: 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1664351577~exp=1664352177~hmac=432a748a9df2741fe4d601bf3ef9b98289e49429c78c9c431651aa23a022ab04',
-            name: 'Mikasa Uzumaki Naruto',
-            role: '201011400094'
+            photo: images.org.andini,
+            name: 'Andini Gustiani',
+            role: '201011401415'
         },                                
         {
-            photo: 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1664351577~exp=1664352177~hmac=432a748a9df2741fe4d601bf3ef9b98289e49429c78c9c431651aa23a022ab04',
-            name: 'Bang Sapri',
-            role: '201011400094'
+            photo: images.org.rizky_destyan,
+            name: 'Rizky Destyan Pulunggono',
+            role: '201011401750'
         },
         {
-            photo: 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1664351577~exp=1664352177~hmac=432a748a9df2741fe4d601bf3ef9b98289e49429c78c9c431651aa23a022ab04',
-            name: 'Mbo Darmi',
-            role: '201011400094'
+            photo: images.org.salwa,
+            name: 'Salwa Carelina Maybrella',
+            role: '201011401674'
+        },
+        {
+            photo: images.org.satria,
+            name: 'Satria Banistama',
+            role: '201011401178'
+        },
+        {
+            photo: images.org.tritiya,
+            name: 'Tritya Adi Dharma',
+            role: '201011401343'
+        },
+        {
+            photo: images.org.wardah,
+            name: 'Wardah Oktafiani',
+            role: '201011400098'
         }
     ];
 
@@ -71,53 +98,34 @@ function AboutUs(props) {
                 </div>
             </div>
 
+            {
+                leadership.map((lead, key) => (
+                    <div className="row mt-4">
+                        <div className="col-md-4"></div>
+                        <div className="col-md-4 mb-4">
+                            <div className="card border-0" style={{ width: '18rem'}}>             
+                                <Image
+                                    className="thumbnail"
+                                    alt="thumbnail"
+                                    loader={myLoader}
+                                    src={lead.photo}
+                                    quality={100}
+                                    layout="intrinsic"
+                                    width={200}
+                                    height={300}
+                                />
+                                <div className="pt-4" style={{ lineHeight: 0 }}>
+                                    <h5 className="fs-4 card-title fw-bold">{lead.name}</h5>
+                                    <p className="fs-7 card-text fst-italic">{lead.role}</p>
+                                </div>
+                            </div>
+                        </div>                
+                        <div className="col-md-4"></div>
+                        
+                    </div>
+                ))
+            }
             
-            <div className="row mt-4">
-                <div className="col-md-4"></div>
-                <div className="col-md-4 mb-4">
-                    <div className="card border-0" style={{ width: '18rem'}}>             
-                        <Image
-                            className="thumbnail"
-                            alt="thumbnail"
-                            loader={myLoader}
-                            src={"https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1664351577~exp=1664352177~hmac=432a748a9df2741fe4d601bf3ef9b98289e49429c78c9c431651aa23a022ab04"}
-                            quality={100}
-                            layout="intrinsic"
-                            width={200}
-                            height={300}
-                        />
-                        <div className="pt-4" style={{ lineHeight: 0 }}>
-                            <h5 className="fs-4 card-title fw-bold">Dosen Pembimbing</h5>
-                            <p className="fs-7 card-text fst-italic">Dospem</p>
-                        </div>
-                    </div>
-                </div>                
-                <div className="col-md-4"></div>
-                
-            </div>
-            <div className="row mt-4">
-                <div className="col-md-4"></div>
-                <div className="col-md-4 mb-4">
-                    <div className="card border-0" style={{ width: '18rem'}}>             
-                        <Image
-                            className="thumbnail"
-                            alt="thumbnail"
-                            loader={myLoader}
-                            src={"https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1664351577~exp=1664352177~hmac=432a748a9df2741fe4d601bf3ef9b98289e49429c78c9c431651aa23a022ab04"}
-                            quality={100}
-                            layout="intrinsic"
-                            width={200}
-                            height={300}
-                        />
-                        <div className="pt-4" style={{ lineHeight: 0 }}>
-                            <h5 className="fs-4 card-title fw-bold">Dosen Pembimbing</h5>
-                            <p className="fs-7 card-text fst-italic">Dospem</p>
-                        </div>
-                    </div>
-                </div>                
-                <div className="col-md-4"></div>
-                
-            </div>
             <div className="content row">
                 {organizations.map((org, key) => (
                     <div className="col-md-4 mt-4" key={key}>

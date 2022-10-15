@@ -54,6 +54,7 @@ const setTimer = () => {
 
 const questionImage = '/images/question/';
 const wordImage = '/images/word/';
+const orgImage = '/images/org/';
 const images = {
     result: '/images/trophy.png',
     logo: '/images/unpam.png',
@@ -84,6 +85,19 @@ const images = {
         webcam: `${wordImage}webcam-Jawaban.png`,
         power_supply: `${wordImage}PowerSupply-Jawaban.png`,
         mouse: `${wordImage}Mouse-Jawaban.png`
+    },
+    org: {
+        hanifudin: `${orgImage}rizky_hanifudin_pic.png`,
+        iqbalsyah: `${orgImage}iqbalsyah_pic.png`,
+        fadhly: `${orgImage}fadhly_pic.png`,
+        andini: `${orgImage}andini_pic.png`,
+        dospem: `${orgImage}dospem_pic.png`,
+        putri: `${orgImage}putri_pic.png`,
+        rizky_destyan: `${orgImage}rizky_destyan_pic.png`,
+        salwa: `${orgImage}salwa_pic.png`,
+        satria: `${orgImage}satria_pic.png`,
+        tritiya: `${orgImage}tritiya_pic.png`,
+        wardah: `${orgImage}wardah_pic.png`,
     }
 };
 
