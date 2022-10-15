@@ -37,12 +37,12 @@ function AboutUs(props) {
             photo: images.org.andini,
             name: 'Andini Gustiani',
             role: '201011401415'
-        },                                
+        },  
         {
-            photo: images.org.rizky_destyan,
-            name: 'Rizky Destyan Pulunggono',
-            role: '201011401750'
-        },
+            photo: images.org.wardah,
+            name: 'Wardah Oktafiani',
+            role: '201011400098'
+        },    
         {
             photo: images.org.salwa,
             name: 'Salwa Carelina Maybrella',
@@ -57,12 +57,12 @@ function AboutUs(props) {
             photo: images.org.tritiya,
             name: 'Tritya Adi Dharma',
             role: '201011401343'
-        },
+        },                         
         {
-            photo: images.org.wardah,
-            name: 'Wardah Oktafiani',
-            role: '201011400098'
-        }
+            photo: images.org.rizky_destyan,
+            name: 'Rizky Destyan Pulunggono',
+            role: '201011401750'
+        },
     ];
 
 
