@@ -100,7 +100,7 @@ function AboutUs(props) {
 
             {
                 leadership.map((lead, key) => (
-                    <div className="row mt-4">
+                    <div className="row mt-4" key={key}>
                         <div className="col-md-4"></div>
                         <div className="col-md-4 mb-4">
                             <div className="card border-0" style={{ width: '18rem'}}>             
