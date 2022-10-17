@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ReactAudioPlayer from "react-audio-player";
 
+
 function Result() {
     const ctx = useAuth();
     const router = useRouter();
@@ -49,7 +50,7 @@ function Result() {
                 <div className={`d-flex align-items-center flex-column justify-content-center`}>
                     <ReactAudioPlayer autoPlay src={sounds.gameFinished} loop />
                     <div className="title">
-                        <label style={{ fontSize: 15, fontWeight: 'normal'}}>Selamat untuk kelompok:</label><br/>                                        
+                        <label style={{ fontSize: 15, fontWeight: 'normal',}}>Selamat untuk kelompok:</label><br/>                                        
                     </div>                
                     <span className="bold h1 text-uppercase">{ctx.user}</span>
                     <div 
